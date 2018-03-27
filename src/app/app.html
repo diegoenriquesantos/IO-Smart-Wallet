@@ -1,0 +1,103 @@
+<ion-menu id="menu" side="right" [content]="content">
+  <ion-header>
+    <!--
+    <ion-toolbar>
+      <ion-title>Título del Menu Desplegable</ion-title>
+    </ion-toolbar>
+    -->
+  </ion-header>
+
+  <ion-content>
+   
+    <!--
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        {{p.title}}
+      </button>
+    </ion-list>
+    -->
+    
+     <!-- <object data="../assets/icon/logo_fixed-02.svg" type="image/svg+xml"></object> -->
+    <!-- <div style="text-align:left"><img src="assets/imgs/logo_topmenu_2.0.svg" width="400" height="100" align="top"></div>  -->
+    <div><img src="app-assets/imgs/logo_IO_top_menu.svg" width="350" height="150" align="top"></div>   <!-- 400x150   - 500 x 150 -  650 x 175 -->
+    
+    
+    <!-- <object data="../assets/icon/logo_menu_03.svg" type="image/svg+xml"></object>
+    <object data="../assets/icon/logo_menu_2.1-02.svg" type="image/svg+xml"></object>
+    <object data="../assets/icon/logo_menu_2.0-03.svg" type="image/svg+xml"></object>  -->
+    <ion-list>
+      <ion-list-header>
+          Neil
+      </ion-list-header>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        
+        <!-- <ion-icon [name]="p.icon"></ion-icon> -->
+       
+        <!-- Titulo de la Página sin condiciones -->
+        <!-- {{p.title}} --> 
+        
+        <div [ngSwitch]="p.title">
+
+        <div style="text-align:left" *ngSwitchCase="'Wallet'"><img src="app-assets/imgs/wallet.svg" width="20" height="20" align="top">&nbsp;<b>{{p.title}}</b></div>
+        <!-- Trading -->
+        <div *ngSwitchCase="'Exchange'"><img class="info" src="app-assets/imgs/trading.svg" width="20" height="20"><b>Exchange</b></div>
+        <div style="text-align:left" *ngSwitchCase="'Network Status'"><ion-icon name="ios-cloud-upload-outline"></ion-icon>&nbsp;<b>{{p.title}}</b></div>
+        <div style="text-align:left" *ngSwitchCase="'Contacts'"><img src="app-assets/imgs/contacts.svg" width="20" height="20" align="top">&nbsp;<b>{{p.title}}</b></div>
+        <div style="text-align:left" *ngSwitchCase="'News'"><img src="app-assets/imgs/news.svg" width="20" height="20" align="top">&nbsp;<b>{{p.title}}</b></div>
+        <div style="text-align:left" *ngSwitchCase="'ZAE'"><img src="app-assets/imgs/avatar.svg" width="20" height="20" align="top">&nbsp;<b>{{p.title}}</b></div>
+        <!-- PARA PRUEBAS -->
+        <!-- <div style="text-align:left" *ngSwitchCase="'Demo'"><ion-icon name="ios-flash-outline"></ion-icon>&nbsp;<b>{{p.title}}</b></div>  -->
+        <div style="text-align:left" *ngSwitchCase="'Settings'"><img src="app-assets/imgs/settings.svg" width="20" height="20" align="top">&nbsp;<b>{{p.title}}</b></div>
+        <!-- PARA PRUEBAS -->
+        <!-- <div style="text-align:left" *ngSwitchCase="'Search'"><img src="app-assets/imgs/settings.svg" width="20" height="20" align="top">&nbsp;<b>{{p.title}}</b></div>   -->
+        
+        <!-- <div *ngSwitchCase="'User'">Neil</div> -->
+        <!--
+        <div style="text-align:left" *ngSwitchCase="'Exit'"><br>
+          <br>
+          <br>
+          <br>
+          <br><img [src]="p.imageUrl" width="20" height="20" align="top">&nbsp;<b>{{p.title}}</b></div>
+        -->
+        <!--
+        <div *ngSwitchDefault><img [src]="p.imageUrl" width="20" height="20" align="top">&nbsp;<b>{{p.title}}</b></div> 
+        -->
+
+        </div>
+        
+
+        <!-- <img class="info" [src]="p.imageUrl" width="20" height="20">  -->
+        
+        <!-- <p *ngIf="p.title = 'Wallet'">There are many heroes!</p> -->
+        
+      </button>
+      
+      <!-- <button menuClose ion-item (click)="openPage('SearchPage')">
+        <div style="text-align:left"><img src="assets/imgs/settings.svg" width="20" height="20" align="top">&nbsp;<b>Search</b></div>
+      </button> -->
+    
+      <button class="btnsair" ion-item menuClose (click)="goToLogin()" color="sair-btn">
+          <div style="text-align:left">
+             <img src="app-assets/imgs/exit.svg" width="20" height="20" align="top">&nbsp;<b>Exit</b>
+          </div> 
+      </button>  
+  
+    </ion-list>
+    
+    <ion-footer no-border>    
+      
+    <!--  <button class="btnsair" ion-item menuClose (click)="goToLogin()" color="sair-btn">
+          <div style="text-align:left">
+             <img src="assets/imgs/exit.svg" width="20" height="20" align="top">&nbsp;<b>Exit</b>
+          </div> 
+      </button>   --> 
+      
+    </ion-footer> 
+  
+  
+  </ion-content>
+
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content (swiperight)="checkMenu()"></ion-nav>   <!-- swipeBackEnabled="false" -->

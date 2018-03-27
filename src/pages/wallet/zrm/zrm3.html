@@ -1,0 +1,63 @@
+<div class="amount-wrapper wallet-background-color-default" ng-show="wallet &amp;&amp; wallet.isComplete() &amp;&amp; amountIsCollapsible" ng-class="{'wallet-background-color-default': !wallet.color}" ng-style="{'background-color':wallet.color}" style="">
+
+    <div ng-style="{'background-color':wallet.color, 'height': amountHeight}" class="amount collapsible wallet-background-color-default" ng-class="{collapsible: amountIsCollapsible, 'wallet-background-color-default': !wallet.color, 'no-alternative': wallet.network != 'livenet'}" style="height: 210px;">
+
+      <div class="amount__error ng-hide" ng-style="{opacity: altAmountOpacity}" ng-show="updateStatusError" style="opacity: 1.375;">
+        <span class="ng-binding"></span>
+      </div>
+
+      <div class="amount__error ng-hide" ng-style="{opacity: altAmountOpacity}" ng-show="walletNotRegistered" style="opacity: 1.375;">
+        <span translate=""><span class="" style="">This wallet is not registered at the given Bitcore Wallet Service (BWS). You can recreate it from the local information.</span></span>
+      </div>
+
+      <div ng-click="updateAll(true)" ng-show="!updateStatusError &amp;&amp; !wallet.balanceHidden &amp;&amp; !wallet.scanning" on-hold="hideToggle()" ng-style="{'transform': amountScale}" ng-class="{amount__balance: amountIsCollapsible}" class="disable-user-behavior amount__balance" style="transform: scale3d(1, 1, 1) translateY(49.2857px);">
+        <strong class="size-36 ng-binding">0.00 BTC</strong>
+        <!-- ngIf: status.totalBalanceAlternative && wallet.network == 'livenet' --><div class="size-14 amount-alternative ng-binding" ng-if="status.totalBalanceAlternative &amp;&amp; wallet.network == 'livenet'" ng-style="{opacity: altAmountOpacity}" style="opacity: 1.375;">
+          0.00 USD
+        </div><!-- end ngIf: status.totalBalanceAlternative && wallet.network == 'livenet' -->
+      </div>
+
+      <div ng-style="{'transform': amountScale}" class="amount__balance disable-user-behavior ng-hide" ng-show="!updateStatusError &amp;&amp; wallet.balanceHidden  &amp;&amp; !wallet.scanning" on-hold="hideToggle()" style="transform: scale3d(1, 1, 1) translateY(49.2857px);">
+        <strong class="size-24" translate=""><span class="" style="">[Balance Hidden]</span></strong>
+        <div ng-style="{opacity: altAmountOpacity}" class="size-14 amount-alternative" translate="" style="opacity: 1.375;"><span class="" style="">Tap and hold to show</span></div>
+      </div>
+
+
+      <div ng-style="{'transform': amountScale}" class="amount__balance ng-hide" ng-show="!updateStatusError &amp;&amp; wallet.scanning" style="transform: scale3d(1, 1, 1) translateY(49.2857px);">
+        <strong class="size-24" translate=""><span class="" style="">[Scanning Funds]</span></strong>
+        <div ng-style="{opacity: altAmountOpacity}" class="size-14 amount-alternative" translate="" style="opacity: 1.375;"><span class="" style="">Please wait</span></div>
+      </div>
+
+
+      <!-- ngIf: !wallet.balanceHidden && !wallet.scanning && showBalanceButton -->
+
+    </div>
+    <div class="wallet-details-wallet-info" ng-style="{opacity: altAmountOpacity}" style="opacity: 1.375;">
+      <!-- ngInclude: 'views/includes/walletInfo.html' --><span ng-include="'views/includes/walletInfo.html'" class="" style="">
+<div class="actions ng-hide" ng-show="(walletNotRegistered || updateStatusError)">
+  <a ng-show="walletNotRegistered" ng-click="recreate()" translate="" class="ng-hide"><span>Tap to recreate</span></a>
+  <a ng-show="updateStatusError" ng-click="updateAll(true)" translate="" class="ng-hide"><span>Tap to retry</span></a>
+</div>
+<ion-spinner class="spinner-dark recent right spinner spinner-crescent ng-hide" icon="crescent" ng-show="(updatingStatus || updatingTxHistory) &amp;&amp;
+  !walletNotRegistered &amp;&amp; !updateStatusError &amp;&amp; !updateTxHistoryError" style=""><svg viewBox="0 0 64 64"><g><circle stroke-width="4" stroke-dasharray="128" stroke-dashoffset="82" r="26" cx="32" cy="32" fill="none" transform="rotate(104 32 32)"><animateTransform values="0,32,32;360,32,32" attributeName="transform" type="rotate" repeatCount="indefinite" dur="750ms"></animateTransform></circle></g></svg></ion-spinner>
+
+<div>
+<span ng-show="wallet.status.wallet.singleAddress" class="size-12 ng-hide"><span translate=""><span>Auditable</span></span></span>
+<img style="height:0.6em; margin-right: 1px;" ng-show="wallet.network != 'livenet'" src="img/icon-testnet-white.svg" class="ng-hide">
+<img style="height:0.6em; margin-right: 1px;" ng-show="wallet.network != 'livenet'" src="img/icon-text-testnet-white.svg" class="ng-hide">
+<img style="height:0.6em; margin-right: 1px;" ng-show="!wallet.canSign() &amp;&amp; !wallet.isPrivKeyExternal()" src="img/icon-read-only-white.svg" class="ng-hide">
+
+<img style="height:0.6em; margin-right: 1px;" ng-show="wallet.getPrivKeyExternalSourceName() == 'trezor'" src="img/icon-trezor-white.svg" class="ng-hide">
+<img style="height:0.6em; margin-right: 1px;" ng-show="wallet.getPrivKeyExternalSourceName() == 'ledger'" src="img/icon-ledger-white.svg" class="ng-hide">
+<img style="height:0.6em; margin-right: 1px;" ng-show="wallet.getPrivKeyExternalSourceName() == 'intelTEE'" src="img/icon-inteltee-white.svg" class="ng-hide">
+<span ng-show="wallet.credentials.n > 1" class="size-12 ng-hide"><span translate=""><span class="ng-binding">1-of-1</span></span></span>
+<span class="size-12 dib ng-binding ng-hide" style="height:0.6em; margin-right: 1px;" ng-show="wallet.credentials.account">#0 </span>
+
+<img style="height:0.6em; margin-right: 1px;" ng-show="wallet.isPrivKeyEncrypted()" src="img/icon-lock-white.svg" class="">
+
+<!-- <img style="height:1em" ng&#45;show="wallet.preferences.email" src="img/icon&#45;email.svg"> -->
+<img style="height:0.6em; margin-right: 1px;" ng-show="wallet.usingCustomBWS" src="img/icon-bws-white.svg" class="ng-hide">
+</div>
+</span>
+    </div>
+  </div>

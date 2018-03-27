@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- Agregado de ion-button menuToggle --> 
+    <button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Account</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]="restService.imgsUrl+'/assets/imgs/'+'foto_linkedin_diego_santos_byn'+'.jpg'">
+      </ion-avatar>
+      <h1>{{shared.fullname}}</h1>
+      <p>@{{shared.username}}</p>
+    </ion-item>
+
+<ion-item-group>
+<ion-item-divider color="light">Contributions</ion-item-divider>
+
+<ion-item>
+<ion-icon name="medal" item-left></ion-icon>
+Fuel
+<ion-badge item-right color="secondary">{{fuel}}</ion-badge></ion-item>
+
+<button ion-item (click)="loadIdeas(0)">
+<ion-icon name="flash" item-left></ion-icon>
+Your Ideas
+<ion-badge item-right>{{shared.ideaNo}}</ion-badge>
+</button>
+
+<button ion-item (click)="loadActions()">
+<ion-icon name="build" item-left></ion-icon>
+Your Actions
+<ion-badge item-right>{{shared.actionNo}}</ion-badge></button>
+
+</ion-item-group>
+
+<ion-item-group>
+<ion-item-divider color="light">Following</ion-item-divider>
+
+<button ion-item (click)="loadIdeas(1)">
+<ion-icon name="checkmark-circle" item-left></ion-icon>
+Closed Ideas
+</button>
+
+    <button ion-item (click)="loadIdeas(2)">
+    <ion-icon name="heart" item-left></ion-icon>
+    Liked Ideas
+  </button>
+
+    <button ion-item (click)="loadSuggestions()">
+    <ion-icon name="cafe" item-left></ion-icon>
+    Your Suggestions
+  </button>
+</ion-item-group>
+
+<ion-item-group>
+  <ion-item-divider color="light">Others</ion-item-divider>
+
+  <ion-item>
+  <ion-icon name="help-circle" item-left></ion-icon>
+  <a href="mailto:diego.enrique.santos@gmail.com?Subject=ESS%20Help" target="_top">Help</a></ion-item>
+
+<button ion-item (click)="goToLogin()">
+<ion-icon name="log-out" item-left></ion-icon>
+Sign Out</button>
+</ion-item-group>
+</ion-content>

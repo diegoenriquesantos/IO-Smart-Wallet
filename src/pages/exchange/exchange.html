@@ -1,0 +1,165 @@
+<ion-header>
+  <ion-navbar  color='navbarColorBlack'>
+    
+    <ion-grid>
+    <ion-row>
+      <ion-col>    
+           <ion-title>
+              <b style="color: #d08a29; font-size: 18pt;">Exchange</b>  
+           </ion-title>
+      </ion-col>    
+      
+      <ion-col style="text-align: center">
+          <img src="app-assets/imgs/IO_logo_transparent.svg" width="219" height="126">   
+      </ion-col>
+      
+      <ion-col>   <!--  style="text-align: right" -->
+           
+      </ion-col> 
+      
+      <!-- Agregado de ion-button menuToggle --> 
+      <button ion-button menuToggle right>
+              <ion-icon name="menu" color="orange"></ion-icon>
+      </button>
+      
+    </ion-row>
+  </ion-grid>
+
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding color="dark">
+ 
+  <ion-item color='navbarColorBlack'> 
+    
+    <ion-grid>
+    <ion-row>
+      <ion-col>   <!--  style="text-align: left"  -->
+          <img src="app-assets/imgs/ZRM.svg">  <!--   height="50px" width="50px"  -->
+      </ion-col>    
+      <ion-col style="text-align: center">
+          <b><H1 align="center" style="color: #ffffff; font-size: 12pt;">ZRM Exchange</H1></b>   <!-- style="color: #d08a29;"  -->  <!--  font-size: 30pt; -->
+      </ion-col>
+      <ion-col style="text-align: right"> <!--  style="text-align: right" -->
+          <button ion-button large color="navbarColorBlack" (click)="goToLogin()"><img src="app-assets/imgs/EXIT.svg"></button>  <!-- id="myImage" height="50px" width="50px" -->
+          <!-- <button ion-button right (click)="goToLogin()">Exit</button> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+  
+  </ion-item>  
+  
+
+  <ion-list>
+    
+  <ion-item>
+  <ion-label color='marron'><b>Currency to Change</b></ion-label>
+  <ion-select (ionChange)="onSelectChangeExchangeKeys($event)">
+    <ion-option *ngFor="let Exchangekey of ExchangeKeys">{{Exchangekey.ExchangeKey}}</ion-option>
+  </ion-select>
+</ion-item>
+
+
+
+<ion-grid style="background-color:#ffffff">
+    <ion-row>
+      <ion-col style="text-align: left">   <!--  style="text-align: left"  -->
+          <ion-input id="idquantitymoney" type="number" step="0.01" placeholder="Input quantity money"></ion-input>
+
+      </ion-col>    
+      <ion-col style="text-align: right">
+          <ion-label color='marron' id="idExchangeKeySelectTicker"><b>ZRM</b></ion-label>   
+          <!-- <ion-input type="text" name="exchange-quantity"></ion-input> -->  <!-- [(ngModel)]="exchange.quantity"  -->  
+          
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+ 
+</ion-list>
+
+
+<ion-list>
+  <!-- <div *ngFor="let Traderkey of TraderKeys">  -->
+
+  <ion-item>
+  <ion-label color='marron'><b>Exchange Over</b></ion-label>
+
+    
+    <ion-select id="idExchangeOverSelect" (ionChange)="onSelectChange($event)">   <!-- , Traderkey.TraderKey -->
+       
+       <div *ngFor="let Traderkey of TraderKeys">  
+       
+       <ion-option id="idExchangeOverOption">{{Traderkey.TraderKey}}</ion-option>   <!-- {{Traderkey}} -->
+      
+      <ion-img style="width: 80px; height: 80px;" src={{Traderkey.TraderImg}}></ion-img>
+      
+      <ion-label color='marron'><b>Exchange Over</b></ion-label>
+
+      <a href=''>
+        <img src={{Traderkey.TraderImg}} width="30" height="30"> 
+      </a> 
+      </div> 
+       
+    </ion-select>
+    
+ <!-- div -->  
+  
+  <!--   -->
+  
+</ion-item>
+
+<div>
+<ion-grid style="background-color:#ffffff">
+    <ion-row>
+      <ion-col *ngFor="let Traderkey of TraderKeys">   
+<button (click)="UpdateList(Traderkey.TraderKey, Traderkey.id)" color="marron" icon-end="" ion-button="" class="disable-hover button button-ios button-default button-default-ios button-ios-dark">
+  
+  <span class="button-inner" style="font-size: 9px;">  
+    {{Traderkey.TraderKey}}
+    <!-- <ion-icon name="star" role="img" class="icon icon-ios ion-ios-star" aria-label="star"></ion-icon> -->
+    &nbsp;<img src={{Traderkey.TraderImg}} width="50" height="50"> 
+  </span>  
+  
+  <!-- <div class="button-effect"></div>  -->
+  </button>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+</div>
+</ion-list>
+
+
+ <ion-list>
+   
+  <ion-item>
+
+  <ion-label color='marron'><b>Currency to Receive</b></ion-label>
+  <ion-select (ionChange)="onSelectChangeReceiveKeys($event)">
+    <ion-option *ngFor="let Receivekey of ReceiveKeys">{{Receivekey}}</ion-option>
+  </ion-select>
+</ion-item>
+
+<ion-item>
+           
+            <ion-label color='marron' id="idReceiveKeyMoney" style="text-align: center"></ion-label> 
+          </ion-item>
+
+</ion-list> 
+
+  <ion-grid>
+        <ion-row>
+          <ion-col style="text-align: center">
+              <button ion-button color="marron" round (click)="goToExchange()">Exchange</button>
+             
+          </ion-col>
+        </ion-row>
+  </ion-grid>
+  
+          
+         
+           
+
+</ion-content>

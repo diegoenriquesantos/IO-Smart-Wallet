@@ -1,0 +1,407 @@
+<ion-nav-view class="view-container" nav-view-transition="ios" nav-view-direction="none" nav-swipe="">
+    <incoming-data-menu><action-sheet action-sheet-show="showMenu"><div class="bp-action-sheet__backdrop" ng-class="{'fade-in': revealMenu}" ng-click="hide()">
+</div>
+<div class="bp-action-sheet__sheet" ng-class="{'slide-up': revealMenu}">
+  <ng-transclude>
+
+  <!-- ngIf: type === 'url' -->
+
+  <!-- ngIf: type === 'bitcoinAddress' -->
+
+  <!-- ngIf: type === 'text' -->
+
+  <!-- ngIf: type === 'privateKey' -->
+
+</ng-transclude>
+</div>
+</action-sheet>
+</incoming-data-menu>
+  <ion-view id="starting" class="pane" state="starting" nav-view="cached" style="opacity: 0; transform: translate3d(0%, 0px, 0px);"><ion-content class="scroll-content ionic-scroll overflow-scroll"><div class="scroll"><div class="block-spinner row"><ion-spinner class="spinner-stable spinner spinner-crescent" icon="crescent"><svg viewBox="0 0 64 64"><g><circle stroke-width="4" stroke-dasharray="128" stroke-dashoffset="82" r="26" cx="32" cy="32" fill="none" transform="rotate(319.308 32 32)"><animateTransform values="0,32,32;360,32,32" attributeName="transform" type="rotate" repeatCount="indefinite" dur="750ms"></animateTransform></circle></g></svg></ion-spinner></div></div></ion-content></ion-view><ion-nav-view name="onboarding" class="pane view-container" abstract="true" nav-view="active" style="opacity: 1; transform: translate3d(0%, 0px, 0px);" nav-view-transition="ios" nav-view-direction="forward" nav-swipe=""><ion-view id="onboard-welcome" class="onboarding pane" state="onboarding.welcome" nav-view="cached" style="opacity: 0.9; transform: translate3d(-33%, 0px, 0px);">
+  <ion-content ng-controller="welcomeController" ng-init="createProfile()" scroll="false" class="scroll-content ionic-scroll scroll-content-false">
+    <div id="logo-tagline">
+        <img src="img/app/logo-negative.svg" id="logo">
+        <p id="lead" translate=""><span class="" style="">Take control of your money,</span><br><span>get started with bitcoin.</span></p>
+    </div>
+    <div id="cta-buttons">
+        <button class="button button-standard button-primary" id="get-started" href="#/onboarding/tour" ui-sref="onboarding.tour" translate-context="button" translate=""><span>Get started</span></button>
+        <button class="button button-standard button-secondary button-clear" id="restore" translate="" href="#/onboarding/import" ui-sref="onboarding.import({'fromOnboarding':true})"><span>Restore from backup</span></button>
+    </div>
+  </ion-content>
+</ion-view><ion-view class="onboarding pane" id="onboarding-tour" state="onboarding.tour" nav-view="cached" style="opacity: 0.9; box-shadow: rgba(0, 0, 0, 0) 0px 0px 10px; transform: translate3d(-33%, 0px, 0px);">
+  <ion-nav-bar class="nav-bar-container hide" nav-bar-transition="ios" nav-bar-direction="forward" nav-swipe="">
+    <ion-nav-title class="hide"></ion-nav-title>
+    <ion-nav-buttons side="primary" class="hide"></ion-nav-buttons>
+    <ion-nav-buttons side="secondary" class="hide"></ion-nav-buttons>
+  <div class="nav-bar-block" nav-bar="cached"><ion-header-bar align-title="center" class="bar bar-header"><div class="buttons buttons-left header-item"><span class="primary-buttons">
+      <button class="button back-button button-clear" ng-click="goBack()">
+        <i class="icon ion-ios-arrow-thin-left"></i>
+      </button>
+    </span></div><div class="title title-center header-item"><span class="nav-bar-title"></span></div><div class="buttons buttons-right header-item"><span class="secondary-buttons">
+      <button class="button back-button button-clear ng-binding ng-hide" ng-show="data.index == 0" ng-click="createDefaultWallet()" style="">
+        Skip
+      </button>
+    </span></div></ion-header-bar></div><div class="nav-bar-block" nav-bar="active"><ion-header-bar align-title="center" class="bar bar-header"><div class="buttons buttons-left header-item"><span class="primary-buttons">
+      <button class="button back-button button-clear" ng-click="goBack()">
+        <i class="icon ion-ios-arrow-thin-left"></i>
+      </button>
+    </span></div><div class="title title-center header-item" style="left: 52px; right: 52px;"><span class="nav-bar-title"></span></div><div class="buttons buttons-right header-item"><span class="secondary-buttons">
+      <button class="button back-button button-clear ng-binding ng-hide" ng-show="data.index == 0" ng-click="createDefaultWallet()" style="">
+        Skip
+      </button>
+    </span></div></ion-header-bar></div></ion-nav-bar>
+  <ion-slides class="slides" options="options" slider="data.slider"><div class="swiper-container swiper-container-horizontal swiper-container-flip"><div class="swiper-wrapper" ng-transclude="" style="transform: translate3d(-2932px, 0px, 0px); transition-duration: 0ms;">
+    <div class="swiper-slide" ng-transclude="" style="width: 1366px; margin-right: 100px;">
+      <ion-content id="onboard-tour-secure" scroll="false" class="scroll-content ionic-scroll scroll-content-false  has-header">
+        <div class="onboarding-topic" translate=""><span class="" style="">Bitcoin is secure,</span><br><span>digital money.</span></div>
+        <div class="onboarding-description" translate=""><span class="" style="">You can spend bitcoin at millions of websites and stores worldwide.</span></div>
+        <div class="onboarding-illustration-secure"></div>
+        <div class="cta-buttons">
+          <div class="onboarding-tldr" translate=""><span class="" style="">Just scan the code to pay.</span></div>
+          <button class="button button-standard button-secondary" ng-click="slideNext()" translate=""><span class="" style="">Got it</span></button>
+        </div>
+      </ion-content>
+    </div>
+    <div class="swiper-slide swiper-slide-prev" ng-transclude="" style="width: 1366px; margin-right: 100px;">
+      <ion-content id="onboard-tour-currency" scroll="false" class="scroll-content ionic-scroll scroll-content-false  has-header">
+        <div class="onboarding-topic" translate=""><span class="" style="">Bitcoin is a currency.</span></div>
+        <div class="onboarding-description" translate=""><span class="" style="">You can trade it for other currencies like US Dollars, Euros, or Pounds.</span></div>
+        <div class="onboarding-illustration-currency">
+          <div id="onboarding-illustration-currency-exchange-rate" class="ng-binding">1 BTC = $8,282.24</div>
+        </div>
+        <div class="cta-buttons">
+          <div class="onboarding-tldr" translate=""><span class="" style="">The exchange rate changes with the market.</span></div>
+          <button class="button button-standard button-secondary" ng-click="slideNext()" translate=""><span class="" style="">Makes sense</span></button>
+        </div>
+      </ion-content>
+    </div>
+    <div class="swiper-slide swiper-slide-active" ng-transclude="" style="width: 1366px; margin-right: 100px;">
+      <ion-content id="onboard-tour-control" scroll="false" class="scroll-content ionic-scroll scroll-content-false  has-header">
+        <div class="onboarding-topic" translate=""><span class="" style="">You control your bitcoin.</span></div>
+        <div class="onboarding-description" translate=""><span class="" style="">This app stores your bitcoin with cutting-edge security.</span></div>
+        <div class="onboarding-illustration-control"></div>
+        <div class="cta-buttons">
+          <div class="onboarding-tldr" translate=""><span class="" style="">Not even BitPay can access it.</span></div>
+          <button class="button button-standard button-primary" ng-click="createDefaultWallet()" translate=""><span class="" style="">Create bitcoin wallet</span></button>
+        </div>
+      </ion-content>
+    </div>
+  </div><div ng-hide="!showPager" class="swiper-pagination swiper-pagination-clickable"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div></div></ion-slides>
+</ion-view><ion-view id="onboarding-collect-email" class="onboarding pane" state="onboarding.collectEmail" nav-view="cached" style="opacity: 0.9; box-shadow: rgba(0, 0, 0, 0) 0px 0px 10px; transform: translate3d(-33%, 0px, 0px);">
+  <ion-content class="scroll-content ionic-scroll overflow-scroll"><div class="scroll">
+    <div id="success-container">
+      <img src="img/onboarding-success.svg" id="success-image">
+      <div id="success-message" translate=""><span class="" style="">Wallet Created</span></div>
+    </div>
+    <div id="collect-email">
+      <!-- ngIf: !confirmation -->
+      <!-- ngIf: confirmation --><div id="collect-email-confirm" ng-if="confirmation" class="" style="">
+        <p translate="" class="confirm"><span>Is this email address correct?</span></p>
+        <p class="user-email ng-binding">diego.enrique.santos@gmail.com</p>
+        <div class="row">
+          <div class="col col-50">
+            <button class="button button-block button-stable ng-binding" ng-click="cancel()">
+              Edit
+            </button>
+          </div>
+          <div class="col col-50">
+            <button class="button button-block button-stable ng-binding" ng-disabled="disableButton" ng-click="save()" disabled="disabled">
+              Confirm
+            </button>
+          </div>
+        </div>
+      </div><!-- end ngIf: confirmation -->
+    </div>
+    <div class="overlay collect-overlay">
+      <button class="button button-stable button-clear ng-binding" ng-click="goNextView()">
+        Skip
+      </button>
+    </div>
+  </div></ion-content>
+</ion-view><ion-view id="onboarding-backup-request" class="onboarding pane" state="onboarding.backupRequest" nav-view="cached" style="opacity: 0.9; box-shadow: rgba(0, 0, 0, 0) 0px 0px 10px; transform: translate3d(-33%, 0px, 0px);">
+  <ion-content scroll="false" class="scroll-content ionic-scroll scroll-content-false">
+    <div id="warning">
+      <svg width="155px" height="155px" viewBox="0 0 155 155" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" id="alert-icon" class="svg">
+    <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
+    <title>warning</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.699999988">
+        <g id="0.5-–-Request-Backup" transform="translate(-112.000000, -63.000000)" stroke-width="5" stroke="#677AE7">
+            <g id="warning" transform="translate(115.000000, 66.000000)">
+                <g id="Group">
+                    <circle id="Oval" cx="74.5" cy="74.5" r="74.5"></circle>
+                    <path d="M74,40.6363636 L74,81.2727273" id="Shape"></path>
+                    <path d="M74,101.590909 L74,108.363636" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
+      <div class="onboarding-topic" translate=""><span class="" style="">No backup, no bitcoin.</span></div>
+      <div class="onboarding-description" id="backup-description" translate=""><span class="" style="">Since only you control your money, you’ll need to save your backup phrase in case this app is deleted.</span></div>
+    </div>
+    <div class="cta-buttons">
+      <i class="ion-ios-arrow-thin-down" id="arrow-down"></i>
+      <div class="onboarding-tldr" id="backup-tldr" translate=""><span class="" style="">Your wallet is never saved to cloud storage or standard device backups.</span></div>
+      <button class="button button-standard button-primary" ui-sref="onboarding.backupWarning({from: 'onboarding', walletId: walletId})" translate="" href="#/onboarding/backupWarning/onboarding/34619195-562d-4582-a0da-833b85dfc0fc"><span class="" style="">Backup wallet</span></button>
+      <button class="button button-standard button-secondary" ng-click="openPopup()" translate=""><span class="" style="">Do it later</span></button>
+    </div>
+  </ion-content>
+</ion-view><ion-view id="backup-warning" class="onboarding pane" hide-tabs="" state="onboarding.backupWarning" nav-view="cached" style="opacity: 0.9; box-shadow: rgba(0, 0, 0, 0) 0px 0px 10px; transform: translate3d(-33%, 0px, 0px);">
+  <ion-nav-bar class="nav-bar-container hide" nav-bar-transition="ios" nav-bar-direction="forward" nav-swipe="">
+    <ion-nav-buttons side="primary" class="hide"></ion-nav-buttons>
+  <div class="nav-bar-block" nav-bar="cached"><ion-header-bar align-title="center" class="bar bar-header"><div class="buttons buttons-left header-item"><span class="primary-buttons">
+      <button class="button button-back button-clear" ng-click="goBack()">
+        <i class="icon ion-ios-arrow-thin-left"></i>
+      </button>
+    </span></div><div class="title title-center header-item"></div></ion-header-bar></div><div class="nav-bar-block" nav-bar="active"><ion-header-bar align-title="center" class="bar bar-header"><div class="buttons buttons-left header-item"><span class="primary-buttons">
+      <button class="button button-back button-clear" ng-click="goBack()">
+        <i class="icon ion-ios-arrow-thin-left"></i>
+      </button>
+    </span></div><div class="title title-center header-item" style="left: 45px; right: 45px;"></div></ion-header-bar></div></ion-nav-bar>
+  <ion-content scroll="false" class="scroll-content ionic-scroll scroll-content-false  has-header">
+    <div class="onboarding-topic" translate=""><span class="" style="">Are you being watched?</span></div>
+    <div class="onboarding-description" translate=""><span class="" style="">Now is a perfect time to assess your surroundings. Nearby windows? Hidden cameras? Shoulder-spies?</span></div>
+    <div class="onboarding-illustration-backup-warning"></div>
+    <div id="cta-buttons">
+      <div class="onboarding-tldr" translate=""><span class="" style="">Anyone with your backup phrase can access or spend your bitcoin.</span></div>
+      <button class="button button-standard button-primary" ng-click="openPopup()" translate=""><span class="" style="">Got it</span></button>
+    </div>
+  </ion-content>
+</ion-view><ion-view id="wallet-backup-phrase" hide-tabs="" class="pane" state="onboarding.backup" nav-view="cached" style="opacity: 0.9; box-shadow: rgba(0, 0, 0, 0) 0px 0px 10px; transform: translate3d(-33%, 0px, 0px);">
+  <ion-nav-bar class="bar-royal nav-bar-container" nav-bar-transition="ios" nav-bar-direction="forward" nav-swipe="">
+    <ion-nav-title class="hide"></ion-nav-title>
+    <ion-nav-back-button class="hide"></ion-nav-back-button>
+  <div class="nav-bar-block" nav-bar="cached"><ion-header-bar class="bar-royal bar bar-header" align-title="center"><button ng-click="$ionicGoBack()" class="button back-button hide buttons button-clear header-item"><i class="icon icon ion-ios-arrow-thin-left"></i> 
+    <span class="back-text"></span></button><div class="title title-center header-item"><span class="nav-bar-title ng-binding">
+      Personal Wallet
+    </span></div></ion-header-bar></div><div class="nav-bar-block" nav-bar="active"><ion-header-bar class="bar-royal bar bar-header" align-title="center"><button ng-click="$ionicGoBack()" class="button back-button buttons button-clear header-item"><i class="icon icon ion-ios-arrow-thin-left"></i> 
+    <span class="back-text"></span></button><div class="title title-center header-item" style="left: 38px; right: 38px;"><span class="nav-bar-title ng-binding">
+      Personal Wallet
+    </span></div></ion-header-bar></div></ion-nav-bar>
+  <ion-content class="scroll-content ionic-scroll overflow-scroll  has-header"><div class="scroll">
+    <div class="ng-hide list card" ng-show="deleted">
+      <div class="item heading">
+        <span translate=""><span class="" style="">Wallet recovery phrase not available</span></span>
+      </div>
+      <div class="item">
+        <span class="comment" translate=""><span class="" style="">You can still export it from Advanced &gt; Export.</span></span>
+      </div>
+    </div>
+    <div class="item">
+      <!-- ngIf: wallet.coin == 'bch' -->
+    </div>
+    <!--
+      ## STEP 1
+    -->
+    <div id="wallet-backup-phrase-step-1" class="ng-hide" ng-show="step == 1 &amp;&amp; (mnemonicWords || (!credentialsEncrypted &amp;&amp; !deleted))" style="">
+      <div class="initial-prompt" translate=""><span class="" style="">Please carefully write down this phrase.</span></div>
+      <div class="backup-phrase" copy-to-clipboard="copyRecoveryPhrase()" style="cursor: pointer;">
+        <div class="backup-phrase-content">
+          <!-- ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index" style=""><span style="white-space:nowrap" class="ng-binding">any</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">rug</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">head</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">walnut</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">gasp</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">already</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">scorpion</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">just</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">bridge</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">tuition</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">shoot</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index --><span class="backup-phrase-content-word-readonly" ng-repeat="word in mnemonicWords track by $index"><span style="white-space:nowrap" class="ng-binding">reject</span><span ng-show="useIdeograms" class="ng-hide">　</span> </span><!-- end ngRepeat: word in mnemonicWords track by $index -->
+        </div>
+      </div>
+      <div class="password-required ng-hide" ng-show="mnemonicHasPassphrase" translate="" style=""><span class="" style="">This recovery phrase was created with a password. To recover this wallet both the recovery phrase and password are needed.</span></div>
+      <div class="cta-buttons">
+        <div class="tldr-prompt" translate=""><span class="" style="">We'll confirm on the next screen.</span></div>
+        <button ng-show="!deleted" ng-disabled="credentialsEncrypted || error" class="button button-standard button-primary" ng-click="goToStep(2);" translate=""><span class="" style="">I've written it down</span></button>
+      </div>
+    </div>
+    <!--
+      ## STEP 2
+    -->
+    <div id="wallet-backup-phrase-step-2" class="" ng-show="step == 2" style="">
+      <div class="confirmation-prompt" translate=""><span class="" style="">Let's verify your backup phrase.</span></div>
+      <div class="backup-phrase">
+        <div class="backup-phrase-content">
+          <!-- ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">any</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">rug</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">head</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">walnut</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">gasp</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">already</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">scorpion</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">just</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">bridge</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">tuition</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">shoot</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index --><span ng-repeat="cword in customWords track by $index" ng-show="customWords[$index]" class="" style="">
+          <button class="button select-word ng-binding" ng-click="removeButton($index, cword)">reject</button>
+          </span><!-- end ngRepeat: cword in customWords track by $index -->
+        </div>
+      </div>
+      <div id="select-phrase" class="cta-buttons">
+        <div id="select-phrase-content">
+          <div ng-show="!selectComplete" class="tldr-prompt ng-hide" translate="" style=""><span class="" style="">Please tap each word in the correct order.</span></div>
+          <div ng-show="selectComplete" class="tldr-prompt" translate="" style=""><span class="" style="">Is this correct?</span></div>
+          <!-- ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide" style="">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">already
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">any
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">bridge
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">gasp
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">head
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">just
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">reject
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">rug
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">scorpion
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">shoot
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">tuition
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index --><span ng-show="!selectComplete" ng-repeat="shuffledWord in shuffledMnemonicWords track by $index" class="ng-hide">
+            <button class="button select-word ng-binding" ng-click="addButton($index, shuffledWord)" ng-disabled="shuffledWord.selected" disabled="disabled">walnut
+            </button>
+          </span><!-- end ngRepeat: shuffledWord in shuffledMnemonicWords track by $index -->
+          <button ng-show="selectComplete" class="button button-standard button-primary" ng-click="goToStep(3);" translate="" style=""><span class="" style="">Confirm</span></button>
+          <button ng-show="selectComplete" class="button button-standard button-secondary button-clear" ng-click="setFlow(2);" translate="" style=""><span class="" style="">Clear</span></button>
+        </div>
+      </div>
+    </div>
+    <!--
+      ## STEP 3
+    -->
+    <div id="wallet-backup-phrase-step-3" class="ng-hide" ng-show="step == 3">
+      <h3 translate=""><span class="" style="">Enter your password</span></h3>
+      <div class="password-prompt">
+        <div class="explanation">
+          <div class="description" translate=""><span class="" style="">In order to verify your wallet backup, please type your password.</span></div>
+          <div class="input">
+            <input type="password" id="passphrase" ng-model="data.passphrase" autocapitalize="off" spellcheck="false" autofocus="" class="ng-pristine ng-untouched ng-valid ng-empty" style="">
+          </div>
+        </div>
+      </div>
+      <div class="button-confirm">
+        <button ng-disabled="!data.passphrase" class="button button-standard button-primary" ng-click="goToStep(4);" translate="" disabled="disabled"><span class="" style="">Confirm</span></button>
+      </div>
+    </div>
+  </div></ion-content>
+</ion-view><ion-pane class="pane-onboarding pane" state="onboarding.disclaimer" nav-view="active" style="opacity: 1; box-shadow: rgba(0, 0, 0, 0) 0px 0px 10px; transform: translate3d(0%, 0px, 0px);">
+  <ion-view id="onboarding-disclaimer" class="onboarding pane shrink" ng-class="{'shrink': shrinkView}" style="">
+    <!-- ngIf: !backedUp -->
+    <ion-content scroll="false" ng-class="{'has-header': !backedUp}" class="scroll-content ionic-scroll scroll-content-false">
+      <div id="onboarding-disclaimer-container">
+        <div ng-show="resume" class="onboarding-topic ng-hide" id="disclaimer-topic" translate="" style=""><span class="" style="">Quick review!</span></div>
+        <div ng-show="!resume" class="onboarding-topic" id="disclaimer-topic" translate=""><span class="" style="">Almost done! Let's review.</span></div>
+        <div class="onboarding-description" id="disclaimer-description" translate=""><span class="" style="">Bitcoin is different – it cannot be safely held with a bank or web service.</span></div>
+        <ion-list class="disable-user-behavior"><div class="list">
+          <label class="item item-checkbox ng-not-empty ng-valid" ng-model="accepted.first" style=""><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" ng-model="accepted.first" class="ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse" value="on" style=""><i class="checkbox-icon"></i></div><div class="item-content disable-pointer-events" ng-transclude="">
+            <span translate=""><span class="" style="">I understand that my funds are held securely on this device, not by a company.</span></span>
+          </div></label>
+          <label class="item item-checkbox ng-not-empty ng-valid" ng-model="accepted.second"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" ng-model="accepted.second" class="ng-untouched ng-valid ng-not-empty ng-dirty ng-valid-parse" value="on" style=""><i class="checkbox-icon"></i></div><div class="item-content disable-pointer-events" ng-transclude="">
+            <span translate=""><span class="" style="">I understand that if this app is moved to another device or deleted, my bitcoin can only be recovered with the backup phrase.</span></span>
+          </div></label>
+        </div></ion-list>
+      </div>
+    </ion-content>
+  </ion-view>
+  <div id="terms-of-use" ng-class="{'slideUp': shrinkView}" class="slideUp" style="">
+    <ion-nav-bar class="nav-bar-container" nav-bar-transition="ios">
+      <ion-nav-title class="hide"></ion-nav-title>
+      <ion-nav-buttons side="primary" class="hide"></ion-nav-buttons>
+    <div class="nav-bar-block" nav-bar="cached"><ion-header-bar align-title="center" class="bar bar-header"><div class="buttons buttons-left header-item"><span class="primary-buttons">
+        <button class="button no-border" ng-click="openTerms()">
+          <i class="ion-ios-arrow-down"></i>
+        </button>
+      </span></div><div class="title title-center header-item"><span class="nav-bar-title ng-binding">Terms of Use</span></div></ion-header-bar></div><div class="nav-bar-block" nav-bar="active"><ion-header-bar align-title="center" class="bar bar-header"><div class="buttons buttons-left header-item"><span class="primary-buttons">
+        <button class="button no-border" ng-click="openTerms()">
+          <i class="ion-ios-arrow-down"></i>
+        </button>
+      </span></div><div class="title title-center header-item"><span class="nav-bar-title ng-binding">Terms of Use</span></div></ion-header-bar></div></ion-nav-bar>
+    <div class="has-header">
+      <!-- ngInclude: 'views/includes/terms.html' --><div ng-include="'views/includes/terms.html'" direction="y" class="" style=""><div id="terms" class="enable_text_select">
+  <p>
+    This is a binding Agreement between BitPay, Inc. (“BitPay” or “We”) and the person, persons, or entity (“You” or “Your”) using the service, Software, or application (“Software”).
+  </p>
+  <p class="terms__heading">
+    RIGHTS AND OBLIGATIONS
+  </p>
+  <p>
+    BitPay provides the Software solely on the terms and conditions set forth in this Agreement and on the condition that You accept and comply with them. By using the Software You (a) accept this Agreement and agree that You are legally bound by its terms; and (b) represent and warrant that: (i) You are of legal age to enter into a binding agreement; and (ii) if You are a corporation, governmental organization or other legal entity, You have the right, power and authority to enter into this Agreement on behalf of the corporation, governmental organization or other legal entity and bind them to these terms.
+  </p>
+  <p>
+    This Software functions as a free, open source, and multi-signature digital wallet. The Software does not constitute an account where We or other third parties serve as financial intermediaries or custodians of Your bitcoin(s).
+  </p>
+  <p>
+    While the Software has undergone beta testing and continues to be improved by feedback from the open-source user and developer community, We cannot guarantee there will not be bugs in the Software. You acknowledge that Your use of this Software is at Your own discretion and in compliance with all applicable laws. You are responsible for safekeeping Your passwords, private key pairs, PINs, and any other codes You use to access the Software.
+  </p>
+  <p>
+    IF YOU LOSE ACCESS TO YOUR BITCOIN WALLET OR YOUR ENCRYPTED PRIVATE KEYS AND YOU HAVE NOT SEPARATELY STORED A BACKUP OF YOUR WALLET AND CORRESPONDING PASSWORD, YOU ACKNOWLEDGE AND AGREE THAT ANY BITCOIN YOU HAVE ASSOCIATED WITH THAT WALLET WILL BECOME INACCESSIBLE. All transaction requests are irreversible. The authors of the Software, employees and affiliates of BitPay, copyright holders, and BitPay, Inc. cannot retrieve Your private keys or passwords if You lose or forget them and cannot guarantee transaction confirmation as they do not have control over the bitcoin network.
+  </p>
+  <p class="terms__heading">
+    DISCLAIMER
+  </p>
+  <p>
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OF THE SOFTWARE, EMPLOYEES AND AFFILIATES OF BITPAY, COPYRIGHT HOLDERS, OR BITPAY, INC. BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+  </p>
+  <p>
+    IN NO EVENT WILL BITPAY OR ITS AFFILIATES, OR ANY OF ITS OR THEIR RESPECTIVE SERVICE PROVIDERS, BE LIABLE TO YOU OR ANY THIRD PARTY FOR ANY USE, INTERRUPTION, DELAY OR INABILITY TO USE THE SOFTWARE, LOST REVENUES OR PROFITS, DELAYS, INTERRUPTION OR LOSS OF SERVICES, BUSINESS OR GOODWILL, LOSS OR CORRUPTION OF DATA, LOSS RESULTING FROM SYSTEM OR SYSTEM SERVICE FAILURE, MALFUNCTION OR SHUTDOWN, FAILURE TO ACCURATELY TRANSFER, READ OR TRANSMIT INFORMATION, FAILURE TO UPDATE OR PROVIDE CORRECT INFORMATION, SYSTEM INCOMPATIBILITY OR PROVISION OF INCORRECT COMPATIBILITY INFORMATION OR BREACHES IN SYSTEM SECURITY, OR FOR ANY CONSEQUENTIAL, INCIDENTAL, INDIRECT, EXEMPLARY, SPECIAL OR PUNITIVE DAMAGES, WHETHER ARISING OUT OF OR IN CONNECTION WITH THIS AGREEMENT, BREACH OF CONTRACT, TORT (INCLUDING NEGLIGENCE) OR OTHERWISE, REGARDLESS OF WHETHER SUCH DAMAGES WERE FORESEEABLE AND WHETHER OR NOT WE WERE ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+  </p>
+  <p class="terms__heading">
+    INTELLECTUAL PROPERTY
+  </p>
+  <p>
+    We retain all right, title, and interest in and to the Content and all of BitPay’s brands, logos, and trademarks, including, but not limited to, BitPay, Inc., BitPay, BitPay – Secure Bitcoin Wallet, BitPay Wallet, BitPay App, Copay, BitPay Prepaid Card, and variations of the wording of the aforementioned brands, logos, and trademarks.
+  </p>
+  <p class="terms__heading">
+    CHOICE OF LAW
+  </p>
+  <p>
+    This Agreement, and its application and interpretation, shall be governed exclusively by the laws of the State of Georgia, without regard to its conflict of law rules. You consent to the exclusive jurisdiction of the federal and state courts located in or near Atlanta, Georgia for any dispute arising under this Agreement.
+  </p>
+  <p class="terms__heading">
+    SEVERABILITY
+  </p>
+  <p>
+    In the event any court shall declare any section or sections of this Agreement invalid or void, such declaration shall not invalidate the entire Agreement and all other paragraphs of the Agreement shall remain in full force and effect.
+  </p>
+  <p class="terms__heading">
+    BINDING AGREEMENT
+  </p>
+  <p>
+    The terms and provisions of this Agreement are binding upon Your heirs, successors, assigns, and other representatives. This Agreement may be executed in counterparts, each of which shall be considered to be an original, but both of which constitute the same Agreement.
+  </p>
+  <p>
+    You assume any and all risks associated with the use of the Software. We reserve the right to modify this Agreement from time to time.
+  </p>
+</div>
+</div>
+    </div>
+  </div>
+  <!-- ngIf: accepted.first && accepted.second --><div id="agree-to-terms" ng-if="accepted.first &amp;&amp; accepted.second" ng-class="{'header-present': !backedUp}" class="" style="">
+    <div id="agree-to-terms-content" class="center-block">
+      <label class="item item-checkbox ng-empty ng-valid" ng-model="terms.accepted"><div class="checkbox checkbox-input-hidden disable-pointer-events checkbox-circle"><input type="checkbox" ng-model="terms.accepted" class="ng-pristine ng-untouched ng-valid ng-empty"><i class="checkbox-icon"></i></div><div class="item-content disable-pointer-events" ng-transclude=""></div></label>
+      <p translate=""><span>I have read, understood, and agree to the </span><a ng-click="openTerms()" translate="" class=""><span>Terms of Use</span></a><span>.</span></p>
+      <button ng-disabled="!accepted.first || !accepted.second || !terms.accepted" class="button button-block button-primary" ng-click="confirm()" translate="" disabled="disabled"><span>Confirm &amp; Finish</span></button>
+    </div>
+  </div><!-- end ngIf: accepted.first && accepted.second -->
+</ion-pane></ion-nav-view></ion-nav-view>

@@ -1,0 +1,27 @@
+<ion-header>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+        <ion-card-header>
+          <h1>Login</h1></ion-card-header>
+
+        <ion-card-content>
+
+          <ion-item>
+            <ion-label floating>Zerium Username</ion-label>
+            <ion-input [(ngModel)]="Username" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Zerium Password</ion-label>
+            <ion-input [(ngModel)]="Password" type="password"></ion-input>
+          </ion-item>
+
+          <ion-buttons>
+            <button ion-button block (click)="login()" color="orange">Sign In</button>
+          </ion-buttons>
+        </ion-card-content>
+
+      </ion-card>
+</ion-content>

@@ -1,0 +1,22 @@
+page-wallet {
+    
+     ion-content{
+  background-color:#383838 !important;   // Gris Oscuro
+ }
+ 
+.ios, .md {
+ 
+    page-wallet{
+ 
+        .scroll-content {
+            background-color: map-get($colors, dark);  //light
+        }
+ 
+        ion-card-header {
+            font-weight: bold;
+        }
+ 
+    }
+ 
+}
+}

@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-navbar>
+    <!-- Agregado de ion-button menuToggle --> 
+    <button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row responsive-sm wrap>
+    <ion-col *ngFor="let i of ideas">
+      <ion-card>
+        <ion-item>
+          <ion-avatar item-left>
+            <img [src]="i.ideaOwnerAvatar">
+          </ion-avatar>
+          <h2>i.ideaOwnerFullname</h2>
+          <!-- <ion-badge item-right>{{i.area}}</ion-badge>  -->
+          <small>i.updatedAt.substr(0, 10)</small>
+        </ion-item>
+
+        <ion-card-content>
+          <p>{{i.description}}</p>
+          <img style="object-fit:cover; width: 60%; margin: auto; display:block; image-orientation: from-image;" *ngIf="i.mediaType=='.jpg'||i.mediaType=='.png'||i.mediaType=='.bmp'||i.mediaType=='.gif'||i.mediaType=='.jpeg'"
+          [src]="gridfsUrl+'/assets/img/'+i.mediaId+i.mediaType">
+
+          <video *ngIf="i.mediaType=='.mp4'" width="256" height="256" style="margin:auto; display: block" controls>
+            <source [src]="gridfsUrl+'/assets/img/'+i.mediaId+i.mediaType" type="video/mp4">
+              Your browser does not support the video playback.
+          </video>
+
+          <audio *ngIf="i.mediaType=='.mp3'" controls>
+  <source [src]="gridfsUrl+'/assets/img/'+i.mediaId+i.mediaType" type="audio/mpeg">
+  Your browser does not support the audio playback.
+</audio>
+
+          <a ion-item text-center *ngIf="!(i.mediaType=='.jpg'||i.mediaType=='.png'||i.mediaType=='.bmp'||i.mediaType=='.gif'||i.mediaType=='.jpeg'||i.mediaType=='.mp4'||i.mediaType=='.mp3'||!i.mediaType)"
+          [href]="gridfsUrl+'/assets/img/'+i.mediaId+i.mediaType" target="_blank">
+            <ion-icon name="cloud-download"></ion-icon>{{i.mediaType}}</a>
+        </ion-card-content>
+
+        <ion-row>
+          <ion-col width-33 center text-center>
+            <button ion-button clear full primary small icon-left text-center (click)="like(i)">
+            <ion-icon name="thumbs-up"></ion-icon>
+            {{i.likes.length}}
+          </button>
+          </ion-col>
+          <ion-col width-33 center text-center>
+            <button ion-button full primary clear small icon-left text-center (click)="modalSuggestion(i)">
+            <ion-icon name="text"></ion-icon>
+            {{i.suggestionsNo}}
+          </button>
+          </ion-col>
+          <ion-col width-33 center text-center>
+        <ion-item text-center><small style="text-transform:uppercase; color:#007aff"><b>{{i.status}}</b></small>
+    </ion-item>
+          </ion-col>
+        </ion-row>
+        <ion-item padding>
+          <h3><i>{{i.latestSuggestionOwnerFullname}}</i></h3>
+          <p><i>{{i.latestSuggestion}}</i></p>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <!-- <ion-note *ngIf="notFoundMessageToggle"><h2>Sorry, nothing is found. Anyway, we know you're always keen in making our company great!</h2></ion-note> -->
+  <ion-fab right bottom *ngIf="refreshToggle">
+  <button ion-fab mini (click)="refresh()"><ion-icon name="refresh"></ion-icon></button>
+  </ion-fab>
+  <ion-fab right bottom>
+  <button ion-fab (click)="modalPost()"><ion-icon name="create"></ion-icon></button>
+  </ion-fab>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

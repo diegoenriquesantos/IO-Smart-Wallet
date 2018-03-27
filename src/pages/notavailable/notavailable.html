@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      This option is Not Available
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-item-group>
+    <ion-item-divider color="light">Information</ion-item-divider>
+    <ion-item text-wrap>
+      <ion-label stacked>Contact</ion-label>
+      <ion-label id="idErrorMsg">{{ErrorMsg}}</ion-label>
+      <ion-textarea rows="2" placeholder="Please contact with the info@zerium.org and send it the Error Code 4000"></ion-textarea>
+    </ion-item>
+    
+   </ion-item-group>
+
+</ion-content>

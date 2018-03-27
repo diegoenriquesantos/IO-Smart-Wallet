@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">
+        <span color="primary" showWhen="ios">Cancel</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      IDEA Application
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-group>
+    <ion-item text-wrap>{{review.benefitCategory}}</ion-item>
+    <ion-item>
+      <small>Idea Owner: {{review.ideaOwner}}</small>
+      <ion-badge item-right>{{review.area}}</ion-badge>
+    </ion-item>
+  </ion-item-group>
+  <ion-item-group>
+    <ion-item-divider color="light">Information</ion-item-divider>
+    <ion-item text-wrap>
+      <ion-label stacked>Topic</ion-label>
+      <ion-textarea rows="2" placeholder="Type your topic here for easier recognition" [(ngModel)]="review.topic"></ion-textarea>
+    </ion-item>
+    <ion-item text-wrap>
+      <ion-label stacked>Problem Description</ion-label>
+      <ion-textarea rows="6" placeholder="Type your problem description here" [(ngModel)]="review.idea"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Solution Description</ion-label>
+      <ion-textarea rows="6" placeholder="Type your solution description here" [(ngModel)]="review.suggestion"></ion-textarea>
+    </ion-item>
+    <ion-item>
+        <ion-label stacked>Benefits Description</ion-label>
+        <ion-textarea rows="6" placeholder="Type your benefit description here" [(ngModel)]="review.benefit"></ion-textarea>
+      </ion-item>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider color="light"><ion-row>
+        <ion-col width-70 center>
+          Contributors
+        </ion-col>
+        <ion-col width-10 center text-center>
+          <button ion-button full primary clear>
+            <ion-icon name="remove-circle" (click)="decreaseArray()"></ion-icon>
+          </button>
+        </ion-col>
+        <ion-col width-10 center text-center>
+          {{Vacants.length}}
+        </ion-col>
+        <ion-col width-10 center text-center>
+          <button ion-button full primary clear>
+            <ion-icon name="add-circle" (click)="increaseArray()"></ion-icon>
+          </button>
+        </ion-col>
+      </ion-row></ion-item-divider>
+    <ion-list>
+      <ion-item *ngFor="let vacant of Vacants">
+        <ion-label floating>{{vacant.value}}</ion-label>
+        <ion-input [(ngModel)]="TeamMembers[vacant.id]" type="text" maxlength="50"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light">Savings</ion-item-divider>
+    <ion-item>Soft Savings ($): {{review.softSaving}}</ion-item>
+    <ion-item>Hard Savings ($): {{review.hardSaving}}</ion-item>
+  </ion-item-group>
+
+  <ion-item-group>
+    <ion-item-divider color="light">Comparison</ion-item-divider>
+    <p padding-left>Before</p>
+    <ion-item>
+  <div>
+    <input type="file" #fileInputBefore (change)="addFile(true)"/>
+  </div>
+</ion-item>
+<p padding-left>After</p>
+<ion-item>
+  <div>
+    <input type="file" #fileInputAfter (change)="addFile(false)"/>
+  </div>
+  </ion-item>
+    </ion-item-group>
+    <ion-fab right bottom>
+      <button ion-fab (click)="post()" color="secondary"><ion-icon name="send"></ion-icon></button>
+    </ion-fab>
+</ion-content>

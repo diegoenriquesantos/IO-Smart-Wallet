@@ -1,0 +1,208 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+
+// The path for our ionicons font files, relative to the built CSS in www/css
+// $ionicons-font-path: "../lib/ionic/fonts"; //!default;
+
+// @import url(https://fonts.googleapis.com/css?family=Arima+Madurai|Lato|Pacifico);
+
+// Include all of Ionic
+// @import "home/ubuntu/workspace/www/assets/fonts";
+
+//ion-app {
+//    @include rtl() {
+//        // font-family: 'Droid Arabic Kufi', serif !important;
+//        font-family: 'Lato', serif !important;
+//    }    
+// }
+
+// $font-family-base: "Lato", sans-serif !default;
+// $font-family-base: "Arima Madurai", cursive !default;
+// $font-family-base: "Pacifico", cursive !default;
+
+//@each $color-name, $color-base, $color-contrast in get-colors($colors) {
+
+//  ion-item-divider.item-ios.item-ios-#{$color-name},
+//  ion-item-divider.item-md.item-md-#{$color-name},
+//  ion-item-divider.item-wp.item-wp-#{$color-name} {
+//    color: $color-contrast;
+//    background-color: $color-base;
+//  }
+
+//}
+
+.selectable{
+    -webkit-user-select: auto;
+}
+
+.force-select { 
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text; 
+}
+    
+$tabs-height:                     200px !default;
+
+.top-44  .tab-nav{
+  height: 54px;
+  top:54px !important;
+ }
+ 
+.top-20  .tab-nav{
+  height: 20pt;
+  top: 20pt;
+ }
+
+.ion-ios-iconZRMLogo,
+.ion-md-iconZRMLogo {
+  content: url('../app-assets/imgs/ZRM_logo.svg');
+  width: 40px;   // 40px;
+  height: 40px;  // 40px;
+  // padding: 6px 4px 2px;
+  // opacity: 0.9;
+}
+
+.ion-ios-customiconExchange,
+.ion-md-customiconExchange {
+  content: url('../app-assets/imgs/EXCHANGE.svg');
+  width: 40px;     // 40px; 
+  height: 35px;    // 35px;  
+  // padding: 6px 4px 2px;
+  // opacity: 0.9;
+}
+
+.ion-ios-customiconWallet,
+.ion-md-customiconWallet {
+  content: url('../app-assets/imgs/WALLET.svg');
+  width: 40px;   // 50px;
+  height: 30px;   // 35px;
+  // padding: 6px 4px 2px;
+  // opacity: 0.9;
+}
+
+
+#myImage {
+  display: block;
+  //width: 50px;
+  //height: 50px;  
+  margin: auto;
+  // border: 1px solid yellow;
+}
+
+// .list-md es el color del separador de listas entre un item de una lista y un item de otra lista distinta
+
+.list-md {
+  // @include margin(-1px, $list-md-margin-end, $list-md-margin-bottom, $list-md-margin-start);  // daba error esta línea
+  background-color: #e69719;    // #e69719 marrón anaranjado      #d62c23  rojo bordó
+}
+
+.item-content {
+  background-color:#ffffff;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+$list-ios-header-background-color: #e69719;
+$list-md-header-background-color: #e69719;
+
+$list-background-color: #e69719;
+
+$fab-list-button-background-color: #e69719;
+
+.card-background-page {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+    background-color: #e69719;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #383838;
+  }
+
+  .card-subtitle {
+    font-size: 1.0em;
+    position: absolute;
+    top: 52%;
+    width: 100%;
+    color: #383838;
+  }
+
+}
+
+ion-content{
+    background-image: url('../app-assets/imgs/background.svg');
+}
+
+ion-icon[name='menu']:before {
+  // content: url('../assets/icon/logo_menu_03.png');
+}
+
+
+ion-menu{
+ ion-content{
+  background-color:#383838 !important;   // Gris Oscuro
+ }
+}
+
+//ion-tabs{
+//  background-color:#f53d3d !important;   // Marrón anaranjado
+// }
+
+// Esta sección se podría habilitar si se quiere un color genérico para todos 
+// ion-tab{
+// background-color:#d62c23 !important;   // Marrón anaranjado   #d08a29  rojo bordó #d62c23  ESTA ES LA SECCION DE LA CABECERA DE LOS TABS
+// ion-content{
+//  background-color:#d62c23 !important;   // Marrón anaranjado  #d08a29  rojo bordó #d62c23  ESTA ES LA PANTALLA DE FONDO DE CADA TAB
+// }
+// }
+
+// Se comenta porque completa con color marrón anaranjado para los botones por defecto
+//.button-md {
+//  text-transform: capitalize;
+//  background-color:#d08a29 !important;   // Marrón anaranjado
+//}
+
+.item-complex .item-content { background-color: #e69719 !important; }
+
+.color {
+    dark: #3ae423 // #e56760;  #e5676d  rosados
+}
+
+$colors: (
+//  primary:    #f53d3d,
+//    danger:  #32db64,
+//  //danger:     #f53d3d,
+  //light:      #f4f4f4,
+  dark: #e56760, // #e4a523 naranja amarronado
+  naranja: #e56760 // #e4a523 naranja amarronado
+)
+
+//ion-tabs{
+//  background-color:#383838 !important;   // Marrón anaranjado
+//}
+

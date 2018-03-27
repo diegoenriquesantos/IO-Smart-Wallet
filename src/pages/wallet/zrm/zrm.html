@@ -1,0 +1,95 @@
+
+<ion-header>
+
+  <ion-navbar color='navbarColorBlack'>
+
+<ion-grid>
+    <ion-row>
+      <ion-col>    
+           <ion-title style="text-align: left">
+              <b style="color: #d08a29; font-size: 18pt;">ZRM Wallet</b>  
+           </ion-title>
+      </ion-col>    
+      
+      <ion-col style="text-align: center">
+          <img src="app-assets/imgs/IO_logo_transparent.svg" width="219" height="126">    <!-- id="myImage"   -->
+          <!--  <img id="myImage" src="../assets/imgs/logo_small_zerium.png" width="600" height="300"> -->  <!-- logoSW_transparente.svg" height="200" width="400"  -->
+          <!--  <img id="myImage" src="../assets/imgs/logoSW.svg" width="600" height="300">  -->
+      </ion-col>
+      
+      <ion-col>   <!--  style="text-align: right" -->
+           
+      </ion-col> 
+      
+      <!-- VER DE GENERAR UN ion-icon de menu CUSTOM con tamaño más grande  SE HIZO con style="zoom:1.5;" -->
+      <button color='navbarColorBlack' ion-button right (click)="checkMenu()">
+              <ion-icon name="menu" style="zoom:1.5;" color="orange"></ion-icon>
+      </button>
+      
+    </ion-row>
+  </ion-grid>
+
+  
+  
+
+</ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+  <ion-card color='navbarColorBlack'>
+  
+  <ion-card-header>
+    <img id="myImage" src="app-assets/imgs/cryptos/ZRM-03.svg" width="40" height="40"> 
+  </ion-card-header>
+  
+  <ion-card-content>
+    <b><H1 align="center" style="color: #d08a29; font-size:24px">Zerium Wallet</H1></b>
+    
+  </ion-card-content>
+  
+    <ion-col style="text-align: center">
+        <b><H1 align="center" style="color: #ffffff; font-size:26px">10000,00 ZRM</H1></b>
+        <b><H1 align="center" style="color: #d08a29; font-size:24px">3000,00 USD</H1></b>   <!-- style="color: #d08a29;"  -->
+    </ion-col>
+    
+    <ion-grid>
+        <ion-row>
+          <ion-col style="text-align: center">
+              <button ion-button color="marron" round (click)="presentSendCryptoModal()">Send</button>
+              <button ion-button color="marron" round (click)="presentReceiveCryptoModal()">Receive</button>
+          </ion-col>
+        </ion-row>
+    </ion-grid>
+  
+    
+        
+</ion-card>
+
+<ion-list>
+    
+    <ion-item color='ffffff'> <!--  color='navbarColorBlack'  -->
+        <ion-icon name="ios-send"><p style="color: #d08a29; font-size:12px"><b>Sent</b> 2,50 ZRM&nbsp;&nbsp; (0,75 USD)&nbsp;&nbsp;Unconfirmed&nbsp;&nbsp;2 Minutes Ago </p></ion-icon>
+    </ion-item> 
+
+    <ion-item color='ffffff'> <!--  color='navbarColorBlack'  -->
+        <ion-icon name="ios-arrow-dropdown"><p style="color: #d08a29; font-size:12px"><b>Received</b> 8,00 ZRM&nbsp;&nbsp; (2,40 USD)&nbsp;&nbsp;Unconfirmed&nbsp;&nbsp;1 Day Ago </p></ion-icon>
+    </ion-item>
+
+    <ion-item color='ffffff'> <!--  color='navbarColorBlack'  -->
+        <ion-icon name="ios-repeat">
+            <p style="color: #d08a29; font-size:12px"><b>Exchanged</b> 100000,00 DOGE&nbsp;&nbsp; (522,10 USD)&nbsp;&nbsp;for Zerium </p>
+            <p style="color: #d08a29; font-size:12px">Date: February 3 of 2018 at 10:21 AM EST</p>
+            <p style="color: #d08a29; font-size:12px">Exchange Details: 100000,00 DOGE for 1740,33 ZRM</p>
+            <p style="color: #d08a29; font-size:12px">Transaction ID: 0x0c0226653a867e90b277a56c27f12ec0103c6989b4f52c15e4b5160395fa6efb</p>
+        </ion-icon>
+    </ion-item>
+    
+    <ion-item color='ffffff'> <!--  color='navbarColorBlack'  -->
+        <ion-icon name="ios-send"><p style="color: #d08a29; font-size:12px"><b>Sent</b> 150,00 ZRM&nbsp;&nbsp; (45,00 USD)&nbsp;&nbsp;Confirmed&nbsp;&nbsp;2 Days Ago </p></ion-icon>
+    </ion-item> 
+</ion-list>
+
+</ion-content>
+

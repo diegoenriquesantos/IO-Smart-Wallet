@@ -1,0 +1,76 @@
+<ion-header>
+
+  <ion-navbar>
+    <!-- Agregado de ion-button menuToggle --> 
+    <button ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Search</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+  <ion-searchbar (input)="search($event)"></ion-searchbar>
+  <ion-item-group>
+  <ion-item-divider color="light">Filter</ion-item-divider>
+    <ion-item>
+      <ion-label>Area</ion-label>
+      <ion-select [(ngModel)]="area" (ionChange)="searchIdea(area)">
+      <ion-option *ngFor="let a of areas" [value]="a.value">{{a.value}}</ion-option>
+      </ion-select>
+  </ion-item>
+    <ion-item>
+  <ion-label>Status</ion-label>
+    <ion-select [(ngModel)]="status" (ionChange)="searchIdea(status)">
+      <ion-option value="Open">Open</ion-option>
+      <ion-option value="Going">Going</ion-option>
+      <ion-option value="Closed">Closed</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <ion-label>Anytime From</ion-label>
+    <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="startDate" (ionChange)="searchAll(startDate)"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Anytime To</ion-label>
+      <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="endDate" (ionChange)="searchAll(endDate)"></ion-datetime>
+      </ion-item>
+</ion-item-group>
+
+    <ion-item-group>
+    <ion-item-divider color="light">Result by Ideas</ion-item-divider>
+  
+  <!-- <button ion-item text-wrap (click)="modalNotavailable("p2p2")">  -->
+  
+  <button ion-item text-wrap *ngFor="let i of ideas" (click)="modalSuggestion(i)"> 
+ 
+    <ion-badge item-right>{{i.area}}</ion-badge>
+    <h2>{{i.ideaOwner}}</h2>
+    <small>{{i.updatedAt.substr(0, 10)}}</small>
+    <p>{{i.description}}</p>
+  </button>
+</ion-item-group>
+
+<ion-item-group>
+<ion-item-divider color="light">Result by Suggestions</ion-item-divider>
+<button ion-item text-wrap *ngFor="let s of suggestions" (click)="loadIdea(s.ideaId)">
+<h2>{{s.suggestionOwner}}</h2>
+<small>{{s.updatedAt.substr(0, 10)}}</small>
+<p>{{s.suggestion}}</p>
+</button>
+</ion-item-group>
+
+<ion-item-group>
+<ion-item-divider color="light">Result by Actions</ion-item-divider>
+<button ion-item text-wrap *ngFor="let a of actions" (click)="loadIdea(a.ideaId)">
+<h2>{{a.actionOwner}}</h2>
+<small>{{a.updatedAt.substr(0, 10)}}</small>
+<p>{{a.action}}</p>
+</button>
+</ion-item-group>
+<ion-fab right bottom *ngIf="refreshToggle">
+<button ion-fab color="danger" (click)="refresh()"><ion-icon name="close"></ion-icon></button>
+</ion-fab>
+</ion-content>

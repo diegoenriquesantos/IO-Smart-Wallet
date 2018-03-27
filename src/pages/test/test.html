@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar color='navbarColorBlack'>
+
+<ion-grid>
+    <ion-row>
+      <ion-col>    
+           <ion-title>
+              <b style="color: #d08a29; font-size:20pt;">Test</b>  
+           </ion-title>
+      </ion-col>    
+      
+      <ion-col style="text-align: center">
+          <img id="myImage" src="../assets/imgs/IO_logo_transparent.svg" width="219" height="126">   <!-- id="myImage"   -->
+          <!--  <img id="myImage" src="../assets/imgs/logo_small_zerium.png" width="600" height="300"> -->  <!-- logoSW_transparente.svg" height="200" width="400"  -->
+          <!--  <img id="myImage" src="../assets/imgs/logoSW.svg" width="600" height="300">  -->
+      </ion-col>
+      
+      <ion-col>   <!--  style="text-align: right" -->
+           
+      </ion-col> 
+      
+      <button ion-button menuToggle right>
+              <ion-icon name="menu" color="orange"></ion-icon>
+      </button>
+      
+    </ion-row>
+  </ion-grid>
+
+
+  </ion-navbar>
+</ion-header>
+
+<ion-content color="navbarColorBlack">
+  
+ 
+  <ion-item color="navbarColorBlack">
+   <ion-grid color="navbarColorBlack">
+    <ion-row>
+      <ion-col>   <!--  style="text-align: left"  -->
+          <img src="assets/imgs/ZRM.svg" height="50px" width="50px">
+      </ion-col>    
+      <ion-col>
+          <b><H1 align="center">Test</H1></b>   <!-- style="color: #d08a29;"    style="color: #ffffff;"  -->
+      </ion-col>
+      <ion-col style="text-align: right">
+         <!--  <img src="assets/imgs/ZRM_logo.svg" height="40" width="40" style="background-color: #000000; color: #000000;">
+          <button color="navbarColorBlack" (click)="goToLogin()"></button>  -->
+       
+       <button ion-button large color="navbarColorBlack" (click)="goToLogin()">
+       <img src="assets/imgs/EXIT.svg" height="50px" width="50px">
+  <!-- <ion-icon name="iconZRMLogo"></ion-icon> -->   <!-- icon-end full="false" -->
+</button>
+
+      <!--     <a href="goToLogin()">
+            <img src="assets/imgs/ZRM_logo.svg" height="40" width="40" style="background-color: #000000; color: #000000;">
+            </a>   --->
+            
+          <!-- EXIT_yellowFill-01.svg  -->
+          <!-- <button ion-button right (click)="goToLogin()">Exit</button> -->
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </ion-item>
+  
+  </ion-content>

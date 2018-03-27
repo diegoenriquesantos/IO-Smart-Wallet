@@ -1,0 +1,18 @@
+<div class="list card sendTip">
+        <div class="item item-icon-right item-heading"></div>
+        <div>
+          <i class="icon zero-state-icon">
+            <img src="https://zerium-linanayail.c9users.io:8082/img/tab-icons/ico-send-selected.svg">
+          </i>
+        </div>
+        <div class="title" translate=""><span>Start sending bitcoin</span></div>
+        <div class="subtitle">
+          <span ng-show="hasWallets" translate="" class=""><span>To get started, buy bitcoin or share your address. You can receive bitcoin from any wallet or service.</span></span>
+          <span ng-show="!hasWallets" translate="" class="ng-hide"><span>To get started, you'll need to create a bitcoin wallet and get some bitcoin.</span></span>
+          <div class="padding">
+            <button class="button button-standard button-primary" ng-click="buyBitcoin()" ng-show="hasWallets" translate=""><span>Buy Bitcoin</span></button>
+            <button class="button button-standard button-primary ng-hide" ng-click="createWallet()" ng-show="!hasWallets" translate=""><span>Create bitcoin wallet</span></button>
+            <button class="button button-standard button-secondary" ui-sref="tabs.receive" ng-show="hasWallets" translate="" href="#/tabs/receive"><span>Show bitcoin address</span></button>
+          </div>
+        </div>
+      </div>
