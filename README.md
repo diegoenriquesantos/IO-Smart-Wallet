@@ -21,23 +21,41 @@ git clone https://github.com/diegoenriquesantos/IO-Smart-Wallet.git
 ```
 
 Change Permissions
-**sudo chmod 777 IO-Smart-Wallet/**
+```
+sudo chmod 777 IO-Smart-Wallet/
+```
 
 Change Directory to the folder project
-**cd IO-Smart-Wallet/**
+```
+cd IO-Smart-Wallet/
+```
 
 Npm Install
-**npm install**
-**npm install --save-dev @ionic/app-scripts@latest**
+```
+npm install
+```
+
+```
+npm install --save-dev @ionic/app-scripts@latest
+```
 
 Start Ionic Server
-**ionic serve -p $PORT --no-livereload** or **ionic serve -p 8080 --no-livereload**
+```
+ionic serve -p $PORT --no-livereload
+```
+or 
+
+```
+ionic serve -p 8080 --no-livereload
+```
 
 
 ## Generate apk file to deploy in Android device
-cordova platform rm android (if the Android platform is currently incorporated)
+``` 
+cordova platform rm android  (if the Android platform is currently incorporated)
 cordova platform add android	
 cordova build android
+```
 
 # Donations
 Do you like this prototype ? Let me know: diego.enrique.santos@gmail.com :)
