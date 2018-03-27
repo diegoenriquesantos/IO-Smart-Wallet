@@ -12,12 +12,12 @@ https://zerium-linanayail.c9users.io/
 
 If the folder exist, remove it:
 ```
-**sudo rm -R IO-Smart-Wallet/**
+sudo rm -R IO-Smart-Wallet/ 
 ```
 
 Clone Repository
 ```
-**git clone https://github.com/diegoenriquesantos/IO-Smart-Wallet.git**
+git clone https://github.com/diegoenriquesantos/IO-Smart-Wallet.git 
 ```
 
 Change Permissions
