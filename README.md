@@ -1,70 +1,41 @@
-## Step 1
+## IO-Smart-Wallet
 
-Create a Ionic 3 project:
-**ionic start zerium-test blank**
+Official IO-Smart-Wallet prototype version 1 for Zerium Project
 
-Would you like to integrate your new app with Cordova to target native iOS and Android?
+## Demo Prototype
 
-Response with y
-
-Install the free Ionic Pro SDK and connect your app?
-
-Response with Y
-
-Email: any (can be completed later with ionic signup)
-
-Password: any (can be completed later with ionic signup)
-
-## Step 2
-
-From the workspace path execute the following command:
-**git clone git@gitlab.com:diego.enrique.santos/zrm-io-smartwallet.git**
-
-## Step 3
-
-If the following directory exist, please remove with the following commands:
-
-**sudo rm -R zerium-test/resources/**
-
-**sudo rm -R zerium-test/src/**
-
-**sudo rm zerium-test/package.json**
-
-**sudo rm zerium-test/.editorconfig**
-
-**sudo rm zerium-test/.gitignore**
-
-**sudo rm zerium-test/config.xml**
+Demo is available at 
+https://zerium-linanayail.c9users.io/
 
 
-## Step 4
+## Install and Start Ionic 3 IO-Smart-Wallet app
 
-**cd zrm-io-smartwallet/**
+If the folder exist, remove it:
+**sudo rm -R IO-Smart-Wallet/**
 
-**sudo mv resources ../zerium-test/**
+Clone Repository
+**git clone https://github.com/diegoenriquesantos/IO-Smart-Wallet.git**
 
-**sudo mv src ../zerium-test/**
+Change Permissions
+**sudo chmod 777 IO-Smart-Wallet/**
 
-**sudo mv www ../zerium-test/**
+Change Directory to the folder project
+**cd IO-Smart-Wallet/**
 
-**sudo mv package.json ../zerium-test/**
+Npm Install
+**npm install**
+**npm install --save-dev @ionic/app-scripts@latest**
 
-**sudo mv zerium-test/.editorconfig**
+Start Ionic Server
+**ionic serve -p $PORT --no-livereload** or **ionic serve -p 8080 --no-livereload**
 
-**sudo mv zerium-test/.gitignore**
 
-**sudo mv zerium-test/config.xml**
+## Generate apk file to deploy in Android device
+cordova platform rm android (if the Android platform is currently incorporated)
+cordova platform add android	
+cordova build android
 
-## Step 5
+# Donations
+Do you like this prototype ? Let me know: diego.enrique.santos@gmail.com :)
 
-**cd ..**
-
-**sudo rm -R zrm-io-smartwallet/**
-
-## Step 6
-
-**sudo mv zerium-test zrm-io-smartwallet**
-
-**cd zrm-io-smartwallet/**
-
-**ionic serve -p 8080 --no-livereload**
+Ethereum: 0xf87bb921423ccbc6668002c7ed0c99bfd1fa86da
